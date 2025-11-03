@@ -3,10 +3,11 @@ package br.gov.Governamentais.domain.usuario;
 import br.gov.Governamentais.domain.comentarios.Comentarios;
 import br.gov.Governamentais.domain.historico.Hitoricos;
 import br.gov.Governamentais.domain.projetoUsuario.ProjetoUsuario;
-import br.gov.Governamentais.domain.usuario.dados.DadosUsuarioCadastra;
+import br.gov.Governamentais.domain.usuario.dados.DadosCadastraUsuario;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Table(name = "tb_usuario")
 @Entity(name = "Usuario")
 @NoArgsConstructor
+@Setter
 @Getter
 @EqualsAndHashCode(of = "id")
 public class Usuario {
@@ -37,8 +39,9 @@ public class Usuario {
     @Column(name = "usuario_email")
     private String email;
 
-    @Column(name = "usuario_ativo", columnDefinition = "NUMBER(1)")
-    private boolean ativo;
+
+    @Column(name = "usuario_ativo", nullable = false)
+    private boolean ativo = true;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProjetoUsuario> projetoUsuarios = new ArrayList<>();
@@ -49,9 +52,10 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comentarios> comentarios = new ArrayList<>();
 
-    public Usuario(DadosUsuarioCadastra dados) {
+    public Usuario(DadosCadastraUsuario dados) {
         this.nome = dados.nome();
         this.email = dados.email();
         this.ativo = true;
     }
+
 }

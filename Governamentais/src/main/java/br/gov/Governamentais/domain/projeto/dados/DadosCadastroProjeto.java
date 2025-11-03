@@ -16,6 +16,7 @@ public record DadosCadastroProjeto(
         @Size(max = 4000, message = "A descrição deve ter no máximo 4000 caracteres.")
         String descricao,
 
+        //TODO: Verificar a data do projeto.
         @NotNull(message = "A data deve ser presente ou futura.")
         LocalDate dataInicio
 
