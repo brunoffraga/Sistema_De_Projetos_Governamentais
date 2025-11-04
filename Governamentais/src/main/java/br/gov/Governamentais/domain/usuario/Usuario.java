@@ -2,7 +2,7 @@ package br.gov.Governamentais.domain.usuario;
 
 import br.gov.Governamentais.domain.comentarios.Comentarios;
 import br.gov.Governamentais.domain.historico.Hitoricos;
-import br.gov.Governamentais.domain.projetoUsuario.ProjetoUsuario;
+import br.gov.Governamentais.domain.projetoUsuario.VincularProjetoUsuario;
 import br.gov.Governamentais.domain.usuario.dados.DadosCadastraUsuario;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
@@ -44,7 +44,7 @@ public class Usuario {
     private boolean ativo = true;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProjetoUsuario> projetoUsuarios = new ArrayList<>();
+    private List<VincularProjetoUsuario> projetoUsuarios = new ArrayList<>();
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Hitoricos> hitoricos = new ArrayList<>();
@@ -56,6 +56,15 @@ public class Usuario {
         this.nome = dados.nome();
         this.email = dados.email();
         this.ativo = true;
+    }
+
+    public void Usuario(DadosCadastraUsuario dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.email() != null) {
+            this.email = dados.email();
+        }
     }
 
 }

@@ -3,6 +3,7 @@ package br.gov.Governamentais.service;
 import br.gov.Governamentais.domain.usuario.Usuario;
 import br.gov.Governamentais.domain.usuario.UsuarioRepository;
 import br.gov.Governamentais.domain.usuario.dados.DadosCadastraUsuario;
+import br.gov.Governamentais.domain.usuario.dados.DadosEditarUsuario;
 import br.gov.Governamentais.domain.usuario.dados.DadosListaUsuairo;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +33,18 @@ public class UsuarioService {
     }
 
     @Transactional
+    public Usuario atualizar(DadosEditarUsuario request){
+        var usuario = new Usuario();
+        usuario.setId(request.id());
+        usuario.setNome(request.nome());
+        usuario.setEmail(request.email());
+
+        repository.save(usuario);
+
+        return usuario;
+    }
+
+    @Transactional
     public Usuario ativarOuDesativarUsuario(UUID id, Boolean ativo){
         var usuario = repository.findById(id)
                 .orElseThrow( () -> new RuntimeException("Usuário não encontrado com o id" + id));
@@ -45,12 +58,12 @@ public class UsuarioService {
 
     @Transactional(readOnly = true)
     public Page<DadosListaUsuairo> listarPorStatus(Boolean ativo, Pageable pageable){
-        if(ativo == null) {
+        if(ativo == null)
             return repository.findAll(pageable).map(DadosListaUsuairo::new);
-        }
-        if (Boolean.TRUE.equals(ativo)) {
+
+        if (Boolean.TRUE.equals(ativo))
             return repository.findAllByAtivoTrue(pageable).map(DadosListaUsuairo::new);
-        }
+
         return  repository.findAllByAtivoFalse(pageable)
                 .map(DadosListaUsuairo::new);
     }
@@ -58,7 +71,7 @@ public class UsuarioService {
     @Transactional(readOnly = true)
     public DadosListaUsuairo usuarioId(@PathVariable UUID id){
         var usuario = repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Usuairo não encontrado com id" + id));
+                .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado com o id: " + id));
         return new DadosListaUsuairo(usuario);
     }
 

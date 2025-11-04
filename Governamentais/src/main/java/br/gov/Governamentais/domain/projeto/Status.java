@@ -5,25 +5,28 @@ import lombok.Getter;
 @Getter
 public enum Status {
 
-    PLANEJADO(0),
-    EM_ANDAMENTO(1),
-    EM_ESPERA(2),
-    CONCLUÍDO(3),
-    CANCELADO(4);
+    PLANEJADO_INICIAL(0, "PLANEJADO_INICIAL"),
+    PLANEJADO_FINALIZADO(1, "PLANEJADO_FINALIZADO"),
+    EM_ANDAMENTO(2, "EM_ANDAMENTO"),
+    CONCLUÍDO(3, "CONCLUÍDO"),
+    EM_ESPERA(4, "EM_ESPERA"),
+    CANCELADO(5, "CANCELADO");
 
     private final int codigo;
+    private final String descricao;
 
-    Status(int codigo) {
+    Status(int codigo, String descricao) {
         this.codigo = codigo;
+        this.descricao = descricao;
     }
 
-    //verifica se o código é valido ou não.
-    public static Status escolhaStatus(int codigo){
-        for(Status tipos : Status.values()){
-            if(tipos.getCodigo() == codigo){
-                return tipos;
+    public Status escolhaStatus(int codigo){
+        for(Status verificandoCodigoStatus : Status.values()){
+            if(verificandoCodigoStatus.getCodigo() == codigo){
+                return verificandoCodigoStatus;
             }
         }
         throw new IllegalArgumentException("Código Invalido" + codigo);
     }
+
 }

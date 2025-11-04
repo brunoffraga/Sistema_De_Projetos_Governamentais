@@ -1,6 +1,7 @@
 package br.gov.Governamentais.domain.usuario.dados;
 
 import br.gov.Governamentais.domain.usuario.Usuario;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.UUID;
 

@@ -3,7 +3,8 @@ package br.gov.Governamentais.domain.projeto;
 import br.gov.Governamentais.domain.comentarios.Comentarios;
 import br.gov.Governamentais.domain.historico.Hitoricos;
 import br.gov.Governamentais.domain.projeto.dados.DadosCadastroProjeto;
-import br.gov.Governamentais.domain.projetoUsuario.ProjetoUsuario;
+import br.gov.Governamentais.domain.projeto.dados.DadosEditarProjeto;
+import br.gov.Governamentais.domain.projetoUsuario.VincularProjetoUsuario;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -38,15 +39,18 @@ public class Projeto {
     private String nome;
 
     //Limitar o varchar de 4000
-    @Column(name = "projeto_descricao")
+    @Column(name = "projeto_descricao", length = 4000)
     private String descricao;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "projeto_status")
-    private Status status;
+    private Status status = Status.PLANEJADO_INICIAL;
 
-    @Column(name = "projeto_progresso")
-    private int progresso;
+    //TODO: Fazer limitacao de 0 a 100
+    @Column(name = "projeto_porcentagem")
+    private Integer porcentagem = 0;
 
+    //TODO: fazer esse
     @Column(name = "projeto_data_inicio")
     private LocalDate dataInicio;
 
@@ -60,7 +64,7 @@ public class Projeto {
 
     //TODO: colocar o relacionamento no usuairo.
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProjetoUsuario> projetoUsuarios = new ArrayList<>();
+    private List<VincularProjetoUsuario> projetoUsuarios = new ArrayList<>();
 
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
     private List<Hitoricos> hitoricos = new ArrayList<>();
@@ -68,27 +72,27 @@ public class Projeto {
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
     private List<Comentarios> comentarios = new ArrayList<>();
 
-    //TODO: fazer dto
     public Projeto(DadosCadastroProjeto dados) {
         this.nome = dados.nome();
+        this.porcentagem = 0;
         this.descricao = dados.descricao();
         this.dataInicio = dados.dataInicio();
         this.ativo = true;
-        //this.usuario
+        this.status = Status.PLANEJADO_INICIAL;
+        this.porcentagem = 0;
     }
 
-    public Integer porcentagemProgresso(Status identificandoStatus){
-        if(identificandoStatus.equals("PLANEJADO")){
-            return 25;
+    public Projeto(DadosEditarProjeto dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
         }
-
-        if(identificandoStatus.equals("EM_ANDAMENTO")){
-            return 50;
+        if (dados.descricao() != null) {
+            this.descricao = dados.descricao();
         }
-
-        if(identificandoStatus.equals("CONCLUÍDO")){
-            return 100;
+        if (dados.dataInicio() != null) {
+            this.dataInicio = dados.dataInicio();
         }
-        return getProgresso();
     }
+
+
 }

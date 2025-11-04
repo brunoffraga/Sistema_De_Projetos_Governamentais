@@ -1,6 +1,7 @@
 package br.gov.Governamentais.controller;
 
 import br.gov.Governamentais.domain.usuario.dados.DadosDetalhamentoUsuario;
+import br.gov.Governamentais.domain.usuario.dados.DadosEditarUsuario;
 import br.gov.Governamentais.domain.usuario.dados.DadosListaUsuairo;
 import br.gov.Governamentais.domain.usuario.dados.DadosCadastraUsuario;
 import br.gov.Governamentais.service.UsuarioService;
@@ -14,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.UUID;
 
 
@@ -40,8 +42,19 @@ public class ControllerUsuairos {
                 .body(new DadosDetalhamentoUsuario(usuario));
     }
 
+    @PutMapping
+    public ResponseEntity atualizacao(
+            @RequestBody @Valid DadosEditarUsuario dados,
+            UriComponentsBuilder uriComponentsBuilder){
+
+        var usuario = service.atualizar(dados);
+
+        return ResponseEntity.noContent().build();
+
+    }
+
     @PostMapping("/{id}/status")
-    public ResponseEntity<DadosDetalhamentoUsuario> ativarOuDesativarUsuario(
+    public ResponseEntity<DadosDetalhamentoUsuario> ativarOuDesativarUsuario (
             @PathVariable UUID id,
             @RequestParam Boolean ativo){
 
@@ -52,10 +65,10 @@ public class ControllerUsuairos {
 
 
     @GetMapping
-    public ResponseEntity<Page<DadosListaUsuairo>> listar(
+    public ResponseEntity<Page<DadosListaUsuairo>> listarPorStatus (
             @RequestParam(required = false) Boolean ativo,
             @ParameterObject
-            @PageableDefault(size = 10, sort = {"id"})Pageable pageable){
+            @PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
 
         var usuario = service.listarPorStatus(ativo, pageable);
         return ResponseEntity.ok(usuario);
@@ -63,7 +76,7 @@ public class ControllerUsuairos {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<DadosListaUsuairo> usuarioId(@PathVariable UUID id){
+    public ResponseEntity<DadosListaUsuairo> usuarioId (@PathVariable UUID id){
         var usuario = service.usuarioId(id);
         return ResponseEntity.ok(usuario);
     }

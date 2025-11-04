@@ -28,11 +28,11 @@ public class Hitoricos {
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "tb_projeto_projeto_id")
+    @JoinColumn(name = "projeto_projeto_id")
     private Projeto projeto;
 
     @ManyToOne
-    @JoinColumn(name = "tb_usuario_usuario_id")
+    @JoinColumn(name = "usuario_usuario_id")
     private Usuario usuario;
 
     //TODO: Limitar o varchar de 4000 e mínimo de 10fazer regra no DTO

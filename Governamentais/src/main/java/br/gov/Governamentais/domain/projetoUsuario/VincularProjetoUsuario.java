@@ -11,12 +11,12 @@ import org.hibernate.annotations.GenericGenerator;
 import java.util.List;
 import java.util.UUID;
 
-@Table(name = "tb_projeto_usuario")
+@Table(name = "tb_vincular_projeto_usuario")
 @Entity(name = "ProjetoUsuario")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class ProjetoUsuario {
+public class VincularProjetoUsuario {
 
     @Id
     @GeneratedValue(generator = "UUID")
