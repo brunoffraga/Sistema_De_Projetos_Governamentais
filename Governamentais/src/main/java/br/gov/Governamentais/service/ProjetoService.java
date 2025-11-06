@@ -5,6 +5,7 @@ import br.gov.Governamentais.domain.projeto.ProjetoRepository;
 import br.gov.Governamentais.domain.projeto.dados.DadosCadastroProjeto;
 import br.gov.Governamentais.domain.projeto.dados.DadosEditarProjeto;
 import br.gov.Governamentais.domain.projeto.dados.DadosListaProjeto;
+import br.gov.Governamentais.domain.projeto.dados.DadosListaProjetoSemDescricao;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -67,6 +68,17 @@ public class ProjetoService {
             return repository.findAllByAtivoTrue(pageable).map(DadosListaProjeto::new);
 
         return repository.findAllByAtivoFalse(pageable).map(DadosListaProjeto::new);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<DadosListaProjetoSemDescricao> listarPorStatusSemTexto(Boolean ativo, Pageable pageable) {
+        if(ativo == null)
+            return repository.findAll(pageable).map(DadosListaProjetoSemDescricao::new);
+
+        if (Boolean.TRUE.equals(ativo))
+            return repository.findAllByAtivoTrue(pageable).map(DadosListaProjetoSemDescricao::new);
+
+        return repository.findAllByAtivoFalse(pageable).map(DadosListaProjetoSemDescricao::new);
     }
 
     @Transactional(readOnly = true)

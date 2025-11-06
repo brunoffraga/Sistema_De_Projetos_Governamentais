@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/criar.css">
+    <link rel="stylesheet" href="/static/css/menu-lateral.css">
+    <script src="/static/js/carrega/menu.js" defer></script>
+    <script src="/static/js/projeto-selecionado.js" defer></script>
+    <script src="/static/js/listar-usuario.js" defer></script>
+    <title>Projetos</title>
+</head>
+<body>
+
+<!-- carrega -->
+<div id="menu-lateral"></div>
+
+<div id="conteudo-lateral">
+    <div class="conteudo-interno">
+        <h1>Projeto</h1>
+        <form>
+            <br>
+            <h3 id="nome"></h3>
+            <br>
+            <p>Status: <span id="status"></span></p>
+            <br>
+            <p>porcentagem: <span id="porcentagem"></span></p>
+            <br>
+            <p>Data: <span id="data"></span></p>
+            <br>
+            <p>descricao: <span id="descricao"></span></p>
+            <br> <br>
+            <div>
+                <label for="usuario">Usuário:</label>
+                <select id="usuario" name="usuario" required>
+                    <option value="">Selecione um usuário</option>
+                </select>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

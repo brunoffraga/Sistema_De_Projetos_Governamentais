@@ -1,7 +1,7 @@
 package br.gov.Governamentais.domain.projeto;
 
 import br.gov.Governamentais.domain.comentarios.Comentarios;
-import br.gov.Governamentais.domain.historico.Hitoricos;
+import br.gov.Governamentais.domain.historico.Historicos;
 import br.gov.Governamentais.domain.projeto.dados.DadosCadastroProjeto;
 import br.gov.Governamentais.domain.projeto.dados.DadosEditarProjeto;
 import br.gov.Governamentais.domain.projetoUsuario.VincularProjetoUsuario;
@@ -67,7 +67,7 @@ public class Projeto {
     private List<VincularProjetoUsuario> projetoUsuarios = new ArrayList<>();
 
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
-    private List<Hitoricos> hitoricos = new ArrayList<>();
+    private List<Historicos> hitoricos = new ArrayList<>();
 
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
     private List<Comentarios> comentarios = new ArrayList<>();

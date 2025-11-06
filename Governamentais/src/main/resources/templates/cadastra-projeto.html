@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/criar.css">
+    <link rel="stylesheet" href="/static/css/menu-lateral.css">
+    <script src="/static/js/carrega/menu.js" defer></script>
+    <script src="/static/js/cadastra-projeto.js" defer></script>
+    <title>Cadastra projetos</title>
+</head>
+<body>
+
+    <!-- carrega -->
+    <div id="menu-lateral"></div>
+
+    <div id="conteudo-lateral">
+        <div class="conteudo-interno">
+            <h1>Cadastrar projeto</h1>
+            <form>
+                <div class="campo-formulario">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o nome do projeto">
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="dataInicio">Data:</label>
+                    <input type="text" id="dataInicio" name="dataInicio" placeholder="yyyy/MES/dd">
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="descricao">Descrição do projeto:</label>
+                    <textarea id="descricao" name="descricao" placeholder="Digite a descrição do projeto" maxlength="4000" rows="10"></textarea>
+                </div>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+#conteudo-lateral {
+    margin-left: 17%; /* espaço do menu lateral */
+    padding: 20px;    /* espaço interno */
+    min-height: 100vh; /* ocupa toda altura da tela */
+    background-color: var(--cor-menu); /* mesma cor do menu */
+    overflow-y: auto; /* permite rolar se houver muito conteúdo */
+
+    /* bordas arredondadas e fundo branco atrás */
+    border-radius: 15px;
+    border: 10px solid white; /* borda branca ao redor */
+}
+
+/* Área interna do conteúdo */
+.conteudo-interno {
+    width: 400px; /* largura do formulário */
+    margin: 0 auto; /* centraliza na página */
+    font-family: Arial, sans-serif;
+    color: white; /* deixa o texto branco */
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; /* espaço entre os campos */
+}
+
+input, textarea {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black; /* texto digitado em preto para ficar visível */
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}

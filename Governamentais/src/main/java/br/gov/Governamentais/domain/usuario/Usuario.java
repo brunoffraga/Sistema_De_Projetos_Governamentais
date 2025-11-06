@@ -1,7 +1,7 @@
 package br.gov.Governamentais.domain.usuario;
 
 import br.gov.Governamentais.domain.comentarios.Comentarios;
-import br.gov.Governamentais.domain.historico.Hitoricos;
+import br.gov.Governamentais.domain.historico.Historicos;
 import br.gov.Governamentais.domain.projetoUsuario.VincularProjetoUsuario;
 import br.gov.Governamentais.domain.usuario.dados.DadosCadastraUsuario;
 import jakarta.persistence.*;
@@ -47,7 +47,7 @@ public class Usuario {
     private List<VincularProjetoUsuario> projetoUsuarios = new ArrayList<>();
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Hitoricos> hitoricos = new ArrayList<>();
+    private List<Historicos> hitoricos = new ArrayList<>();
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comentarios> comentarios = new ArrayList<>();

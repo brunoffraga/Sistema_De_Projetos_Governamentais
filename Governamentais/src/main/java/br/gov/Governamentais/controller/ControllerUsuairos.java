@@ -18,7 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 import java.util.UUID;
 
-
+@CrossOrigin(origins = "http://localhost:63342") //Permite requisições do seu frontend
 @RestController
 @RequestMapping("/usuario")
 public class ControllerUsuairos {
@@ -34,7 +34,7 @@ public class ControllerUsuairos {
         var usuario = service.salvar(dados);
 
         var uri = uriComponentsBuilder
-                .path("/usuairo/{id}")
+                .path("/usuario/{id}")
                 .buildAndExpand(usuario.getId()).toUri();
 
         return ResponseEntity

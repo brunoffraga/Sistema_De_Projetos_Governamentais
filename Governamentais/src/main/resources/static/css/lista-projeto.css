@@ -1,0 +1,24 @@
+/* Estilo do botão "Entrar no projeto" */
+.btn-entrar {
+    padding: 8px 15px;           /* tamanho do botão */
+    background-color: #fff;   /* cor de fundo */
+    color: black;                /* cor do texto */
+    border: none;                /* sem borda */
+    border-radius: 4px;          /* cantos arredondados */
+    cursor: pointer;             /* muda o cursor ao passar */
+    font-size: 14px;             /* tamanho do texto */
+    transition: background-color 0.3s ease; /* efeito suave */
+    margin-top: 5px;             /* espaço acima do botão */
+}
+
+/* Hover: muda a cor quando o mouse passa por cima */
+.btn-entrar:hover {
+    background-color: #000;
+    color: white;
+}
+
+/* Optional: foco no teclado */
+.btn-entrar:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.5);
+}

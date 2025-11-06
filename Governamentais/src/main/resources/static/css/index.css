@@ -1,0 +1,76 @@
+/* Conteúdo principal */
+#conteudo-principal {
+    position: absolute;
+    top: 0;
+    left: 18%;        /* começa depois do menu */
+    width: 80.9%;       /* ocupa o restante da largura */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Área de boas-vindas */
+#cabecalho {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 50%;            /* parte de cima */
+    background-color: var(--cor-menu);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Área de botões */
+#area-botoes {
+    margin: 20px;
+    display: flex;
+    flex-wrap: row;
+    justify-content: flex-start;
+    gap: 10px;
+    flex: 1;                /* ocupa metade inferior */
+    margin-top: 20px;
+    margin-left: 20px;
+    /* area de rolagem */
+    overflow-x: auto;        /* ← ativa rolagem lateral */
+    overflow-y: hidden;      /* evita rolagem vertical */
+    scroll-behavior: smooth; /* rolagem suave */
+    padding-bottom: 10px;    /* espaço para a barra de rolagem */
+}
+
+/* Opcional: estilo da barra de rolagem (para navegadores modernos) */
+#area-botoes::-webkit-scrollbar {
+  height: 10px;
+}
+
+#area-botoes::-webkit-scrollbar-thumb {
+  background-color: var(--cor-menu);
+  border-radius: 5px;
+}
+
+#area-botoes::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Botões */
+.botao-obra {
+    display: flex;
+    flex: 0 0 auto; /* impede que o botão redimensione */
+    width: 200px;
+    height: 94.5%;
+    gap: 20px;
+    background-color: var(--cor-menu);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 20px;
+}
+
+/* === AJUSTE PARA CELULAR === */
+@media (max-width: 768px) {
+  #menu-lateral {
+    width: 18%;
+  }
+}

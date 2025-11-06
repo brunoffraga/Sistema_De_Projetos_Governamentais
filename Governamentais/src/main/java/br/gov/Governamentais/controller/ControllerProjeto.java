@@ -1,10 +1,7 @@
 package br.gov.Governamentais.controller;
 
 import br.gov.Governamentais.domain.projeto.Projeto;
-import br.gov.Governamentais.domain.projeto.dados.DadosCadastroProjeto;
-import br.gov.Governamentais.domain.projeto.dados.DadosDetalhamentoProjeto;
-import br.gov.Governamentais.domain.projeto.dados.DadosEditarProjeto;
-import br.gov.Governamentais.domain.projeto.dados.DadosListaProjeto;
+import br.gov.Governamentais.domain.projeto.dados.*;
 import br.gov.Governamentais.service.ProjetoService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
@@ -19,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.UUID;
 
+@CrossOrigin(origins = "http://localhost:63342") //Permite requisições do seu frontend
 @RestController
 @RequestMapping("/projeto")
 public class ControllerProjeto {
@@ -70,6 +68,17 @@ public class ControllerProjeto {
             @PageableDefault(size = 10, sort = {"id"}) Pageable pageable) {
 
         var projeto = service.listarPorStatus(ativo, pageable);
+        return ResponseEntity.ok(projeto);
+    }
+
+    @Operation(summary = "Listar projetos")
+    @GetMapping("/semDescricao")
+    public ResponseEntity<Page<DadosListaProjetoSemDescricao>> listarPorStatusSemTexto (
+            @RequestParam(required = false) Boolean ativo,
+            @ParameterObject
+            @PageableDefault(size = 10, sort = {"id"}) Pageable pageable) {
+
+        var projeto = service.listarPorStatusSemTexto(ativo, pageable);
         return ResponseEntity.ok(projeto);
     }
 
