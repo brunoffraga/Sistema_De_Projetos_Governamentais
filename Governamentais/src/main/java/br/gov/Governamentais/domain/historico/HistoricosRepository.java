@@ -8,10 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface HistoricosRepository extends JpaRepository<Historicos, UUID> {
+public interface HistoricosRepository extends JpaRepository<Historicos, Long> {
 
-    Page<Historicos> findAllByAtivoTrue(Pageable pageable);
-
-    Page<Historicos> findAllByAtivoFalse(Pageable pageable);
+    Page<Historicos> findAllByAtivo(Boolean ativo, Pageable pageable);
 
 }

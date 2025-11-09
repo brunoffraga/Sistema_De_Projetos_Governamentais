@@ -5,6 +5,7 @@ import br.gov.Governamentais.domain.usuario.UsuarioRepository;
 import br.gov.Governamentais.domain.usuario.dados.DadosCadastraUsuario;
 import br.gov.Governamentais.domain.usuario.dados.DadosEditarUsuario;
 import br.gov.Governamentais.domain.usuario.dados.DadosListaUsuairo;
+import br.gov.Governamentais.domain.usuario.dados.DadosListaUsuairoNome;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,14 +59,16 @@ public class UsuarioService {
 
     @Transactional(readOnly = true)
     public Page<DadosListaUsuairo> listarPorStatus(Boolean ativo, Pageable pageable){
-        if(ativo == null)
-            return repository.findAll(pageable).map(DadosListaUsuairo::new);
 
-        if (Boolean.TRUE.equals(ativo))
-            return repository.findAllByAtivoTrue(pageable).map(DadosListaUsuairo::new);
-
-        return  repository.findAllByAtivoFalse(pageable)
+        return  repository.findAllByAtivo(ativo, pageable)
                 .map(DadosListaUsuairo::new);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<DadosListaUsuairoNome> listarPorStatusNome(Boolean ativo, Pageable pageable){
+
+        return  repository.findAllByAtivo(ativo, pageable)
+                .map(DadosListaUsuairoNome::new);
     }
 
     @Transactional(readOnly = true)

@@ -1,18 +1,24 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/css/criar.css">
-    <link rel="stylesheet" href="/static/css/menu-lateral.css">
-    <script src="/static/js/carrega/menu.js" defer></script>
-    <script src="/static/js/cadastra-projeto.js" defer></script>
+
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{../css/criar.css}">
+    <link rel="stylesheet" th:href="@{../css/button.css}">
+    <link rel="stylesheet" th:href="@{../css/menu.css}">
+
+    <!-- JS -->
+    <script th:src="@{../js/carrega/menu.js}" defer></script>
+    <script th:src="@{../js/cadastra-projeto.js}" defer></script>
+
     <title>Cadastra projetos</title>
 </head>
 <body>
 
-    <!-- carrega -->
-    <div id="menu-lateral"></div>
+    <!-- menu -->
+    <div th:replace="fragments/menu :: menu"></div>
 
     <div id="conteudo-lateral">
         <div class="conteudo-interno">
@@ -25,7 +31,7 @@
 
                 <div class="campo-formulario">
                     <label for="dataInicio">Data:</label>
-                    <input type="text" id="dataInicio" name="dataInicio" placeholder="yyyy/MES/dd">
+                    <input type="date" id="dataInicio" name="dataInicio" placeholder="yyyy/MES/dd">
                 </div>
 
                 <div class="campo-formulario">

@@ -11,8 +11,6 @@ import java.util.UUID;
 @Repository
 public interface ProjetoRepository extends JpaRepository<Projeto, UUID> {
 
-    Page<Projeto> findAllByAtivoTrue(Pageable pageable);
-
-    Page<Projeto> findAllByAtivoFalse(Pageable pageable);
+    Page<Projeto> findAllByAtivo(Boolean ativo, Pageable pageable);
 
 }

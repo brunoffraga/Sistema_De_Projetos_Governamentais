@@ -17,10 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.UUID;
 
 @Service
-public class HistoricosServer {
+public class HistoricosServece {
 
     @Autowired
     private HistoricosRepository repository;
@@ -39,7 +38,7 @@ public class HistoricosServer {
                 .orElseThrow(() -> new RuntimeException("Projeto não encontrado"));
 
         Usuario usuario = usuarioRepository.findById(dados.usuarioId())
-                .orElseThrow(() -> new RuntimeException("Projeto não encontrado"));
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         historicos.setProjeto(projeto);
         historicos.setUsuario(usuario);
@@ -70,7 +69,7 @@ public class HistoricosServer {
     }
 
     @Transactional
-    public Historicos ativarOuDesativarHistoricos(UUID id, Boolean ativo){
+    public Historicos ativarOuDesativarHistoricos(Long id, Boolean ativo){
         var historicos = repository.findById(id)
                 .orElseThrow( () -> new RuntimeException("Historicos não encontrado com o id" + id));
 
@@ -83,18 +82,13 @@ public class HistoricosServer {
 
     @Transactional(readOnly = true)
     public Page<DadosListaHistoricos> listarPorStatus(Boolean ativo, Pageable pageable){
-        if(ativo == null)
-            return repository.findAll(pageable).map(DadosListaHistoricos::new);
 
-        if (Boolean.TRUE.equals(ativo))
-            return repository.findAllByAtivoTrue(pageable).map(DadosListaHistoricos::new);
-
-        return  repository.findAllByAtivoFalse(pageable)
+        return  repository.findAllByAtivo(ativo, pageable)
                 .map(DadosListaHistoricos::new);
     }
 
     @Transactional(readOnly = true)
-    public DadosListaHistoricos historicosId(@PathVariable UUID id){
+    public DadosListaHistoricos historicosId(@PathVariable Long id){
         var historicos = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Historicos não encontrado com o id: " + id));
         return new DadosListaHistoricos(historicos);

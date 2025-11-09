@@ -9,10 +9,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
-import java.time.LocalDate;
-import java.util.UUID;
+import java.time.LocalDateTime;
 
 @Table(name = "tb_hitoricos")
 @Entity(name = "Hitorico")
@@ -23,14 +21,10 @@ import java.util.UUID;
 public class Historicos {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            //essa extensão garante que os identificadores sejam globais e unicamente únicos
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column(name = "historicos_id", columnDefinition = "RAW(16)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "historicos_seq")
+    @SequenceGenerator(name = "historicos_seq", sequenceName = "SEQ_HITORICO", allocationSize = 1)
+    @Column(name = "historicos_id")
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "projeto_projeto_id")
@@ -45,20 +39,20 @@ public class Historicos {
     private String texto;
 
     @Column(name = "historico_data_publicada")
-    private LocalDate dataPublicada = LocalDate.now();
+    private LocalDateTime dataPublicada = LocalDateTime.now();
 
     @Column(name = "historico_ativo")
     private Boolean ativo = true;
 
     public Historicos(DadosCadastraHistoricos dados) {
         this.texto = texto;
-        this.dataPublicada = LocalDate.now();
+        this.dataPublicada = LocalDateTime.now();
         this.ativo = true;
     }
 
     public Historicos(DadosEditarHistoricos dados) {
         this.texto = texto;
-        this.dataPublicada = LocalDate.now();
+        this.dataPublicada = LocalDateTime.now();
         this.ativo = true;
     }
 }

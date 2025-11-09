@@ -1,0 +1,94 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de cores */
+:root {
+    --cor-fundo: #f5f5f5;
+    --cor-menu: #222;
+    --cor-texto: #333;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* evita scroll lateral */
+}
+
+/* Estilo do menu */
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 17%;
+    height: 100%;
+    background-color: var(--cor-menu);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#menu a {
+    display: block;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    background-color: #555;
+    width: 80%;
+    text-align: center;
+    border-radius: 4px;
+}
+
+nav {
+      background-color: #222;
+      width: 200px;
+}
+nav ul {
+    list-style: none;
+}
+    nav ul li {
+    position: relative;
+}
+nav ul li a {
+      color: white;
+      display: block;
+      padding: 10px 15px;
+      text-decoration: none;
+}
+nav ul li a:hover {
+    background: #555;
+}
+/* Tooltip estilizado como janelinha pequena */
+.tooltip {
+      display: none;
+      position: absolute;
+      top: 0;       /* Alinha na altura do item pai */
+      left: 80%;   /* Posiciona à direita do item pai */
+      margin-left: 10px; /* Espaço entre o item e a tooltip */
+      background-color: #444;
+      padding: 5px 10px;
+      border-radius: 5px;
+      min-width: 100px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.3);
+      flex-direction: column;
+}
+.tooltip a {
+      padding: 5px 0;
+      color: white;
+      text-decoration: none;
+}
+.tooltip a:hover {
+        background: #222;
+}
+/* Mostrar a tooltip ao passar o mouse */
+li.has-tooltip:hover > .tooltip {
+        display: flex;
+}
+

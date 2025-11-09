@@ -1,9 +1,6 @@
 package br.gov.Governamentais.controller;
 
-import br.gov.Governamentais.domain.usuario.dados.DadosDetalhamentoUsuario;
-import br.gov.Governamentais.domain.usuario.dados.DadosEditarUsuario;
-import br.gov.Governamentais.domain.usuario.dados.DadosListaUsuairo;
-import br.gov.Governamentais.domain.usuario.dados.DadosCadastraUsuario;
+import br.gov.Governamentais.domain.usuario.dados.*;
 import br.gov.Governamentais.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springdoc.core.annotations.ParameterObject;
@@ -15,19 +12,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
 import java.util.UUID;
 
-@CrossOrigin(origins = "http://localhost:63342") //Permite requisições do seu frontend
 @RestController
 @RequestMapping("/usuario")
+@CrossOrigin(origins = "http://localhost:63342")
 public class ControllerUsuairos {
 
     @Autowired
     private UsuarioService service;
 
     @PostMapping
-    public ResponseEntity cadastrar(
+    public ResponseEntity cadastrar (
             @RequestBody @Valid DadosCadastraUsuario dados,
             UriComponentsBuilder uriComponentsBuilder){
 
@@ -43,7 +39,7 @@ public class ControllerUsuairos {
     }
 
     @PutMapping
-    public ResponseEntity atualizacao(
+    public ResponseEntity atualizacao (
             @RequestBody @Valid DadosEditarUsuario dados,
             UriComponentsBuilder uriComponentsBuilder){
 
@@ -63,7 +59,6 @@ public class ControllerUsuairos {
         return ResponseEntity.ok(new DadosDetalhamentoUsuario(usuario));
     }
 
-
     @GetMapping
     public ResponseEntity<Page<DadosListaUsuairo>> listarPorStatus (
             @RequestParam(required = false) Boolean ativo,
@@ -71,6 +66,16 @@ public class ControllerUsuairos {
             @PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
 
         var usuario = service.listarPorStatus(ativo, pageable);
+        return ResponseEntity.ok(usuario);
+    }
+
+    @GetMapping("/nome")
+    public ResponseEntity<Page<DadosListaUsuairoNome>> listarPorStatusNome (
+            @RequestParam(required = false) Boolean ativo,
+            @ParameterObject
+            @PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
+
+        var usuario = service.listarPorStatusNome(ativo, pageable);
         return ResponseEntity.ok(usuario);
     }
 

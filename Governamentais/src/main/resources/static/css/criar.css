@@ -31,15 +31,3 @@ input, textarea {
     border-radius: 4px;
     color: black; /* texto digitado em preto para ficar visível */
 }
-
-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    display: block;
-    margin: 0 auto;
-}

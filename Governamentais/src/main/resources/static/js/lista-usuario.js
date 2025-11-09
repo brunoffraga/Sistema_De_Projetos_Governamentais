@@ -1,7 +1,5 @@
-// Pega o container
 const listaContainer = document.getElementById('usuarios-lista');
 
-// Função para criar o HTML de cada usuário
 function criarUsuarioHTML(usuario) {
   return `
     <br>
@@ -14,24 +12,23 @@ function criarUsuarioHTML(usuario) {
   `;
 }
 
-// Função para buscar usuários do backend
 async function listarUsuarios() {
   try {
-    const response = await fetch('http://localhost:8080/usuario?ativo=true');
+    const params = new URLSearchParams(window.location.search);
+    const ativo = params.get('ativo'); // pega true/false da URL
+
+    const response = await fetch(`http://localhost:8080/usuario?ativo=${ativo}`);
+
     if (!response.ok) throw new Error('Erro ao buscar usuários');
 
-    const data = await response.json();      // data é o objeto completo
-    const usuarios = data.content;           // pega apenas o array dentro de 'content'
+    const data = await response.json(); // pega objeto completo
+    const usuarios = data.content || []; // pega array dentro de 'content'
 
-    // Limpa o container antes de inserir
     listaContainer.innerHTML = '';
 
-    // Monta todo o HTML de uma vez
-    let html = '';
     usuarios.forEach(usuario => {
-      html += criarUsuarioHTML(usuario);
+      listaContainer.innerHTML += criarUsuarioHTML(usuario);
     });
-    listaContainer.innerHTML = html;
 
   } catch (error) {
     console.error(error);
@@ -39,6 +36,4 @@ async function listarUsuarios() {
   }
 }
 
-// Chama a função quando a página carrega
 window.addEventListener('DOMContentLoaded', listarUsuarios);
-

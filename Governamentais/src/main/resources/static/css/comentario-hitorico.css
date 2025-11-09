@@ -1,0 +1,121 @@
+/* === RESET === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === VARIÁVEIS === */
+:root {
+  --cor-fundo: #f5f5f5;
+  --cor-bloco: #222;
+  --cor-texto-titulo: #f5f5f5;
+  --cor-texto: #333;
+  --cor-hover: #555;
+  --cor-ativar: #28a745;
+  --cor-desativar: #dc3545;
+  --cor-botao: #28a745;
+  --cor-botao-hover: #218838;
+}
+
+/* === BASE === */
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  display: flex;
+}
+
+/* === ÁREA DE CONTEÚDO === */
+#conteudo {
+  margin-left: 17%; /* espaço para o menu */
+  display: grid;
+  grid-template-columns: 1fr; /* apenas uma coluna */
+  width: 83%;
+  padding: 20px;
+  height: 100vh;
+}
+
+/* === COLUNA ÚNICA === */
+.coluna {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--cor-bloco);
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* === BLOCO === */
+.bloco {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px;
+}
+
+.bloco h2 {
+  color: var(--cor-fundo);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* === COMENTÁRIOS === */
+.comentarios {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.mensagem {
+  background-color: #f0f0f0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* === ÁREA DE INPUT === */
+.input-area {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  gap: 10px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.botao-enviar {
+  background-color: var(--cor-botao);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-enviar:hover {
+  background-color: var(--cor-botao-hover);
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 900px) {
+  #conteudo {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
+  }
+
+}

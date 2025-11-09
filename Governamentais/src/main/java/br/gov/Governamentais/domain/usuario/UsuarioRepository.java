@@ -10,8 +10,6 @@ import java.util.UUID;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, UUID> {
 
-    Page<Usuario> findAllByAtivoTrue(Pageable pageable);
-
-    Page<Usuario> findAllByAtivoFalse(Pageable pageable);
+    Page<Usuario> findAllByAtivo(Boolean ativo, Pageable pageable);
 
 }

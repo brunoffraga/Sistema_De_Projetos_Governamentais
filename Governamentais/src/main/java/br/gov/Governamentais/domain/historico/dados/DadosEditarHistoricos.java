@@ -9,7 +9,7 @@ import java.util.UUID;
 public record DadosEditarHistoricos(
 
         @NotNull(message = "Obrigadotrio id do Historico")
-        UUID id,
+        Integer id,
 
         @NotNull(message = "Obrigatorio o id do usuario")
         UUID projetoId,

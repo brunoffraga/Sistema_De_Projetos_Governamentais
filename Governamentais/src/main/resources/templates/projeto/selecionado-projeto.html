@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{../css/criar.css}">
+    <link rel="stylesheet" th:href="@{../css/button.css}">
+    <link rel="stylesheet" th:href="@{../css/menu.css}">
+
+    <!-- JS -->
+    <script th:src="@{../js/carrega/menu.js}" defer></script>
+    <script th:src="@{../js/projeto-selecionado.js}" defer></script>
+
+    <title>Projetos</title>
+</head>
+<body>
+
+    <!-- menu -->
+    <div th:replace="~{fragments/menu :: menu}"></div>
+
+    <div id="conteudo-lateral">
+        <div class="conteudo-interno">
+            <h1>Projeto</h1>
+            <form>
+                <br>
+                <h3 id="nome"></h3>
+                <br>
+                <p>Status: <span id="status"></span></p>
+                <br>
+                <p>Porcentagem: <span id="porcentagem"></span></p>
+                <br>
+                <p>Data: <span id="data"></span></p>
+                <br>
+                <p>Descrição: <span id="descricao"></span></p>
+
+                <br>
+
+                <div id="area-botoes">
+                    <button class="botao-editar">Editar</button>
+                    <button class="botao-comentario">Comentar</button>
+                    <button class="botao-historico">Histórico</button>
+                    <button class="botao-excluir"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

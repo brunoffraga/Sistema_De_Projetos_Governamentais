@@ -47,12 +47,19 @@ public class ProjetoService {
     }
 
     @Transactional
-    public Projeto atualiza(DadosEditarProjeto request){
-        var projeto = new Projeto();
-        projeto.setId(request.id());
-        projeto.setNome(request.nome());
-        projeto.setDescricao(request.descricao());
-        projeto.setDataInicio(request.dataInicio());
+    public Projeto atualiza(UUID id, DadosEditarProjeto request){
+        var projeto = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Projeto não encontrado"));
+
+        if (request.nome() != null) {
+            projeto.setNome(request.nome());
+        }
+        if (request.descricao() != null) {
+            projeto.setDescricao(request.descricao());
+        }
+        if (request.dataInicio() != null) {
+            projeto.setDataInicio(request.dataInicio());
+        }
 
         repository.save(projeto);
 
@@ -61,27 +68,15 @@ public class ProjetoService {
 
     @Transactional(readOnly = true)
     public Page<DadosListaProjeto> listarPorStatus(Boolean ativo, Pageable pageable) {
-        if(ativo == null)
-            return repository.findAll(pageable).map(DadosListaProjeto::new);
-
-        if (Boolean.TRUE.equals(ativo))
-            return repository.findAllByAtivoTrue(pageable).map(DadosListaProjeto::new);
-
-        return repository.findAllByAtivoFalse(pageable).map(DadosListaProjeto::new);
+        return repository.findAllByAtivo(ativo, pageable).map(DadosListaProjeto::new);
     }
 
-    @Transactional(readOnly = true)
     public Page<DadosListaProjetoSemDescricao> listarPorStatusSemTexto(Boolean ativo, Pageable pageable) {
-        if(ativo == null)
-            return repository.findAll(pageable).map(DadosListaProjetoSemDescricao::new);
 
-        if (Boolean.TRUE.equals(ativo))
-            return repository.findAllByAtivoTrue(pageable).map(DadosListaProjetoSemDescricao::new);
-
-        return repository.findAllByAtivoFalse(pageable).map(DadosListaProjetoSemDescricao::new);
+        return repository.findAllByAtivo(ativo, pageable)
+                .map(DadosListaProjetoSemDescricao::new);
     }
 
-    @Transactional(readOnly = true)
     public DadosListaProjeto usuarioId(@PathVariable UUID id){
         var projeto = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Projeto não encontrado com o id: " + id));

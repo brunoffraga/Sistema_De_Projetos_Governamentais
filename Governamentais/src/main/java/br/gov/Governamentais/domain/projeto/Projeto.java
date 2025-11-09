@@ -1,6 +1,6 @@
 package br.gov.Governamentais.domain.projeto;
 
-import br.gov.Governamentais.domain.comentarios.Comentarios;
+import br.gov.Governamentais.domain.comentarios.Comentario;
 import br.gov.Governamentais.domain.historico.Historicos;
 import br.gov.Governamentais.domain.projeto.dados.DadosCadastroProjeto;
 import br.gov.Governamentais.domain.projeto.dados.DadosEditarProjeto;
@@ -46,7 +46,7 @@ public class Projeto {
     @Column(name = "projeto_status")
     private Status status = Status.PLANEJADO_INICIAL;
 
-    //TODO: Fazer limitacao de 0 a 100
+    //TODO: Fazer limitação de 0 a 100
     @Column(name = "projeto_porcentagem")
     private Integer porcentagem = 0;
 
@@ -62,7 +62,7 @@ public class Projeto {
 
     //      Relacionamento
 
-    //TODO: colocar o relacionamento no usuairo.
+    //TODO: colocar o relacionamento no usuário.
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VincularProjetoUsuario> projetoUsuarios = new ArrayList<>();
 
@@ -70,11 +70,10 @@ public class Projeto {
     private List<Historicos> hitoricos = new ArrayList<>();
 
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
-    private List<Comentarios> comentarios = new ArrayList<>();
+    private List<Comentario> comentarios = new ArrayList<>();
 
     public Projeto(DadosCadastroProjeto dados) {
         this.nome = dados.nome();
-        this.porcentagem = 0;
         this.descricao = dados.descricao();
         this.dataInicio = dados.dataInicio();
         this.ativo = true;
@@ -83,15 +82,9 @@ public class Projeto {
     }
 
     public Projeto(DadosEditarProjeto dados) {
-        if (dados.nome() != null) {
-            this.nome = dados.nome();
-        }
-        if (dados.descricao() != null) {
-            this.descricao = dados.descricao();
-        }
-        if (dados.dataInicio() != null) {
-            this.dataInicio = dados.dataInicio();
-        }
+        this.nome = dados.nome();
+        this.descricao = dados.descricao();
+        this.dataInicio = dados.dataInicio();
     }
 
 

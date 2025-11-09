@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 botao.addEventListener('click', () => {
                     const idDoProjeto = projeto.id; // pega do JSON ou array
-                    window.location.href = `http://localhost:63342/Governamentais/templates/projeto-selecionado.html?id=${projeto.id}`;
+                    window.location.href = `http://localhost:8080/projeto/selecionado?id=${projeto.id}`;
                 });
 
                 areaBotoes.appendChild(botao);

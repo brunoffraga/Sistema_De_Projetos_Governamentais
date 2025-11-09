@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Css -->
+    <link rel="stylesheet" th:href="@{../css/criar.css}">
+    <link rel="stylesheet" th:href="@{../css/menu.css}">
+    <link rel="stylesheet" th:href="@{../css/lista.css}">
+    <link rel="stylesheet" th:href="@{../css/button.css}">
+
+    <!-- JS -->
+    <script th:src="@{../js/carrega/menu.js}" defer></script>
+    <script th:src="@{../js/lista-projeto.js}" defer></script>
+    <title>Projetos</title>
+</head>
+<body>
+
+<!-- menu -->
+    <div th:replace="fragments/menu :: menu"></div>
+
+    <div id="conteudo-lateral">
+        <div class="conteudo-interno">
+            <h1>Listar projetos</h1>
+            <hr><br>
+            <div id="projeto-lista">
+                <!-- Os projetos serão inseridos aqui pelo JS -->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

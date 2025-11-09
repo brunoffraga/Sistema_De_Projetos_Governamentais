@@ -4,9 +4,8 @@ import br.gov.Governamentais.domain.historico.dados.DadosCadastraHistoricos;
 import br.gov.Governamentais.domain.historico.dados.DadosDetalhamentoHistoricos;
 import br.gov.Governamentais.domain.historico.dados.DadosEditarHistoricos;
 import br.gov.Governamentais.domain.historico.dados.DadosListaHistoricos;
-import br.gov.Governamentais.service.HistoricosServer;
+import br.gov.Governamentais.service.HistoricosServece;
 import jakarta.validation.Valid;
-import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,15 +14,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.UUID;
-
-@CrossOrigin(origins = "http://localhost:63342") //Permite requisições do seu frontend
 @RestController
 @RequestMapping("/historicos")
 public class ControllerHitoricos {
 
     @Autowired
-    private HistoricosServer service;
+    private HistoricosServece service;
 
     @PostMapping
     public ResponseEntity cadastrar(
@@ -54,7 +50,7 @@ public class ControllerHitoricos {
 
     @PostMapping("/{id}/status")
     public ResponseEntity<DadosDetalhamentoHistoricos> ativarOuDesativarUsuario (
-            @PathVariable UUID id,
+            @PathVariable Long id,
             @RequestParam Boolean ativo){
 
         var historicos = service.ativarOuDesativarHistoricos(id, ativo);
@@ -62,20 +58,17 @@ public class ControllerHitoricos {
         return ResponseEntity.ok(new DadosDetalhamentoHistoricos(historicos));
     }
 
-
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Page<DadosListaHistoricos>> listarPorStatus (
             @RequestParam(required = false) Boolean ativo,
-            @ParameterObject
             @PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
 
         var historicos = service.listarPorStatus(ativo, pageable);
         return ResponseEntity.ok(historicos);
     }
 
-
-    @GetMapping("/{id}")
-    public ResponseEntity<DadosListaHistoricos> usuarioId (@PathVariable UUID id){
+    @GetMapping
+    public ResponseEntity<DadosListaHistoricos> usuarioId (@PathVariable Long id){
         var historicos = service.historicosId(id);
         return ResponseEntity.ok(historicos);
     }

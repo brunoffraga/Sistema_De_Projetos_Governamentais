@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public record DadosDetalhamentoProjeto (UUID id, String nome, String descricao){
 
-    public DadosDetalhamentoProjeto(Projeto projeto){
+    public DadosDetalhamentoProjeto (Projeto projeto){
         this(projeto.getId(), projeto.getNome(), projeto.getDescricao());
     }
 }

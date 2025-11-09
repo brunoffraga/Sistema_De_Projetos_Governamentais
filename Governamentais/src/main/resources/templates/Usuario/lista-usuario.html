@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{../css/criar.css}">
+    <link rel="stylesheet" th:href="@{../css/menu.css}">
+
+    <!-- -->
+    <script th:src="@{../js/carrega/menu.js}" defer></script>
+    <script th:src="@{../js/lista-usuario.js}" defer></script>
+    <title>Lista de usuario</title>
+</head>
+<body>
+
+    <!-- menu -->
+    <div th:replace="fragments/menu :: menu"></div>
+
+    <div id="conteudo-lateral">
+        <div class="conteudo-interno">
+            <h1>Listar usuários</h1>
+            <hr><br>
+            <div id="usuarios-lista">
+                <!-- Usuários serão inseridos aqui -->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/comentario-hitorico.css}">
+
+    <script th:src="@{../js/carrega/menu.js}"></script>
+    <script th:src="@{../../app.js}"></script>
+    <title>Cadastra projetos</title>
+
+</head>
+<body>
+
+    <!-- menu -->
+    <div th:replace="~{fragments/menu :: menu}"></div>
+
+    <div id="conteudo">
+        <!-- COLUNA ÚNICA: COMENTÁRIOS -->
+        <section class="coluna">
+            <div class="bloco">
+                <h2>Comentários</h2>
+                <div class="comentarios"  id="comentarios">
+                    <div class="mensagem">
+                        <strong></strong>
+                    </div>
+                </div>
+                <div class="input-area">
+                    <input type="text" placeholder="Escreva um comentário..."  rows="1"/>
+                    <button class="botao-enviar" id="botao-enviar">➤</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

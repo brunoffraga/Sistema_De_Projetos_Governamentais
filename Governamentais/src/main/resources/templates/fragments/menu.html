@@ -1,0 +1,26 @@
+<div xmlns:th="http://www.thymeleaf.org" th:fragment="menu">
+    <nav id="menu">
+        <div class="menu-toggle" id="menu-toggle"></div>
+        <ul class="menu-list">
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/projeto/cadastra}">Cadastrar projeto</a></li>
+            <li><a th:href="@{/usuario/cadastra}">Cadastrar usuário</a></li>
+
+            <li class="has-tooltip">
+                <a href="#">Usuário</a>
+                <ul class="tooltip">
+                    <li><a th:href="@{/usuario/lista?ativo=true}">Ativo</a></li>
+                    <li><a th:href="@{/usuario/lista?ativo=false}">Desativo</a></li>
+                </ul>
+            </li>
+
+            <li class="has-tooltip">
+                <a href="#">Projeto</a>
+                <ul class="tooltip">
+                    <li><a th:href="@{/projeto/lista?ativo=true}">Ativo</a></li>
+                    <li><a th:href="@{/projeto/lista?ativo=false}">Desativo</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>

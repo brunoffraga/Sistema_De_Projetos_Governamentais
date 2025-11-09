@@ -8,10 +8,10 @@ import java.util.UUID;
 
 public record DadosCadastraHistoricos(
 
-        @NotNull(message = "Obrigatorio o id do usuario")
+        @NotNull(message = "Obrigatório o id do usuário")
         UUID projetoId,
 
-        @NotNull(message = "Obrigatorio o id do usuario")
+        @NotNull(message = "Obrigatório o id do usuário")
         UUID usuarioId,
 
         @NotBlank(message = "O texto é obrigatório.")

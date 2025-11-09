@@ -50,14 +50,14 @@ public class ControllerProjeto {
         return ResponseEntity.ok(new DadosDetalhamentoProjeto(projeto));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity atualizacao(
+            @PathVariable UUID id,
             @RequestBody @Valid DadosEditarProjeto dados,
             UriComponentsBuilder uriComponentsBuilder){
+        var projeto = service.atualiza(id, dados);
 
-        var projeto = service.atualiza(dados);
-
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(new DadosDetalhamentoProjeto(projeto));
     }
 
     @Operation(summary = "Listar projetos")

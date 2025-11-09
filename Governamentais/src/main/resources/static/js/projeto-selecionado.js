@@ -1,29 +1,100 @@
-// Espera o DOM carregar
 document.addEventListener('DOMContentLoaded', () => {
-    const areaBotoes = document.getElementById('area-botoes');
 
-    // Função para carregar os projetos do backend
+    const botaoEditar = document.querySelector('.botao-editar');
+    const botaoComentario = document.querySelector('.botao-comentario');
+    const botaoHistorico = document.querySelector('.botao-historico');
+    const botaoExcluir = document.querySelector('.botao-excluir');
+
+    let projetoAtual = null;
+
+    // Função para carregar o projeto
     async function carregaProjetos() {
         try {
-            // Pega o ID da URL (?id=123)
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
+            if (!id) return;
 
-            // Busca os dados do projeto no backend
             const response = await fetch(`http://localhost:8080/projeto/${id}`);
-            const projeto = await response.json();
+            if (!response.ok) throw new Error("Projeto não encontrado");
 
-            // Exibe os dados na página
-            document.getElementById('nome').textContent = projeto.nome;
-            document.getElementById('status').textContent = projeto.status;
-            document.getElementById('porcentagem').textContent = projeto.porcentagem;
-            document.getElementById('data').textContent = projeto.data;
-            document.getElementById('descricao').textContent = projeto.descricao;
+            const projeto = await response.json();
+            projetoAtual = projeto;
+
+            const campos = ['nome', 'status', 'porcentagem', 'data', 'descricao'];
+            campos.forEach(campo => {
+                const elemento = document.getElementById(campo);
+                if (elemento) elemento.textContent = projeto[campo] ?? '';
+            });
+
+            // Atualiza o texto do botão Excluir/Ativar ao carregar
+            if (botaoExcluir) {
+                botaoExcluir.textContent = projeto.ativo ? "Excluir" : "Ativar";
+            }
+
         } catch (error) {
             console.error("Erro ao carregar o projeto:", error);
-            }
+        }
     }
 
-    // Chama a função
+    // BOTÃO EDITAR
+    if (botaoEditar) {
+        botaoEditar.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!projetoAtual) return;
+
+            // Redireciona para a página de edição passando o id na URL
+            window.location.href = `http://localhost:8080/projeto/edita?id=${projetoAtual.id}`;
+        });
+    }
+
+    // BOTÃO EXCLUIR / ATIVAR
+    if (botaoExcluir) {
+        botaoExcluir.addEventListener('click', async (e) => {
+            e.preventDefault();
+            if (!projetoAtual) return;
+
+            // Alterna o valor de "ativo"
+            const novoStatus = !projetoAtual.ativo;
+            const acao = novoStatus ? "ativar" : "excluir";
+
+            if (!confirm(`Tem certeza que deseja ${acao} este projeto?`)) return;
+
+            try {
+                await fetch(`http://localhost:8080/projeto/${projetoAtual.id}/status?ativo=${novoStatus}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                alert(`Projeto ${acao === "ativar" ? "ativado" : "excluído"} com sucesso!`);
+
+                // Atualiza a flag local e o texto do botão
+                projetoAtual.ativo = novoStatus;
+                botaoExcluir.textContent = novoStatus ? "Excluir" : "Ativar";
+
+            } catch (error) {
+                console.error(`Erro ao ${acao} o projeto:`, error);
+            }
+        });
+    }
+
+    // BOTÃO COMENTÁRIO
+    if (botaoComentario) {
+        botaoComentario.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!projetoAtual) return;
+            window.location.href = `http://localhost:8080/projeto/comentario?id=${projetoAtual.id}`;
+        });
+    }
+
+    // BOTÃO HISTÓRICO
+    if (botaoHistorico) {
+        botaoHistorico.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!projetoAtual) return;
+            window.location.href = `http://localhost:8080/projeto/comentario?id=${projetoAtual.id}`;
+        });
+    }
+
+
     carregaProjetos();
 });
