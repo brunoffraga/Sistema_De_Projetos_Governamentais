@@ -1,41 +1,96 @@
 {
   "nome": "Hospital Municipal de Osasco",
   "descricao": "A construção do Hospital Municipal de Osasco visa ampliar a capacidade de atendimento à população, com uma estrutura moderna, sustentável e equipada com tecnologia de ponta, atendendo padrões de eficiência e segurança hospitalar.",
-  "dataInicio": "2025-03-15"
+  "dataInicio": "2026-03-15"
 }
 {
     "nome": "Hospital Municipal de Osasco",
     "descricao": "A construção do Hospital Municipal de Osasco representa um dos projetos mais significativos de infraestrutura em saúde pública da região metropolitana de São Paulo. Situado estrategicamente na Avenida dos Autonomistas, o empreendimento foi concebido para atender à crescente demanda populacional e proporcionar um atendimento humanizado, eficiente e tecnologicamente avançado. O projeto contempla uma área total de aproximadamente 25 mil metros quadrados, distribuída em cinco pavimentos que abrigam pronto-socorro, centro cirúrgico, maternidade, UTI adulto, neonatal e pediátrica, além de laboratórios e setores administrativos. Cada detalhe da construção foi pensado para garantir fluxos internos otimizados, acessibilidade universal e segurança hospitalar em todos os níveis de operação. A estrutura combina concreto armado com componentes metálicos modulares, permitindo maior agilidade na execução da obra e redução de desperdícios. Os sistemas de climatização e iluminação foram projetados para oferecer conforto térmico e eficiência energética, reduzindo o consumo de recursos naturais. O hospital também contará com sistema de captação e reuso de água pluvial, painéis solares para aquecimento e um sistema inteligente de gerenciamento de energia, garantindo sustentabilidade e economia operacional a longo prazo. O paisagismo e as áreas externas foram planejados para proporcionar bem-estar a pacientes, acompanhantes e profissionais de saúde, com jardins e espaços de convivência. O projeto também inclui um heliponto para atendimento de emergência, estacionamento com vagas acessíveis e estrutura de apoio logístico. Estima-se a geração de cerca de 600 empregos diretos e indiretos durante a construção, movimentando a economia local. Quando em funcionamento, o hospital ampliará significativamente a capacidade de atendimento do município, com previsão de mais de 5 mil atendimentos mensais, aliviando a pressão sobre outras unidades de saúde da região. O cronograma de execução da obra foi dividido em etapas que priorizam fundações profundas, execução estrutural, vedação, instalações e acabamentos de alto padrão. Todo o processo está sendo acompanhado por equipe técnica multidisciplinar, garantindo conformidade com as normas da Anvisa e do Ministério da Saúde. A entrega do Hospital Municipal de Osasco representa um avanço concreto para o sistema público de saúde, refletindo o compromisso da cidade com o bem-estar e a qualidade de vida de sua população.",
-    "dataInicio": "2025-03-15"
+    "dataInicio": "2025-12-15"
 },
 {
     "nome": "Hospital Regional de Carapicuíba",
     "descricao": "O Hospital Regional de Carapicuíba é um empreendimento estratégico destinado a fortalecer a rede de atendimento hospitalar da zona oeste da Grande São Paulo. Planejado com base em estudos de demanda e projeções populacionais, o novo hospital terá papel essencial na ampliação da capacidade assistencial, oferecendo atendimento integral e especializado em diversas áreas médicas. Com área construída superior a 30 mil metros quadrados, o projeto foi desenhado para incorporar conceitos modernos de arquitetura hospitalar, priorizando a eficiência funcional e a sustentabilidade ambiental. O edifício contará com seis pavimentos, sendo um subsolo técnico, quatro andares de internação e um pavimento dedicado exclusivamente a serviços de diagnóstico e imagem. O centro cirúrgico será equipado com tecnologia de ponta, permitindo a realização de procedimentos de alta complexidade, além de uma ala destinada à cirurgia ambulatorial e unidades de recuperação intensiva. A concepção arquitetônica privilegia a iluminação natural, a ventilação cruzada e o uso racional de energia, com aplicação de vidros de controle solar, brises metálicos e sistema automatizado de climatização. Além disso, o hospital contará com sistema de captação de energia fotovoltaica, coleta seletiva de resíduos hospitalares e uso de materiais de baixo impacto ambiental. O projeto também inclui uma central de abastecimento farmacêutico, áreas de apoio logístico, refeitório para funcionários, auditório para capacitações e salas de telemedicina integradas à rede estadual de saúde. A implantação do Hospital Regional de Carapicuíba gerará aproximadamente 800 empregos diretos e indiretos, contribuindo para o desenvolvimento econômico local. Com previsão de conclusão em 28 meses, o empreendimento visa oferecer mais de 400 leitos, incluindo 60 de UTI, e capacidade para realizar cerca de 7 mil atendimentos mensais. O projeto destaca-se pelo foco no cuidado humanizado e na integração tecnológica, permitindo o acompanhamento eletrônico dos pacientes, agendamento digital e monitoramento remoto de leitos. Essa iniciativa simboliza a modernização da infraestrutura pública de saúde, reforçando o compromisso do governo estadual e municipal com o acesso universal e de qualidade. Quando concluído, o Hospital Regional de Carapicuíba se tornará referência em atendimento hospitalar na região, atendendo não apenas a população local, mas também cidades vizinhas, fortalecendo a rede de urgência e emergência de todo o consórcio intermunicipal.",
-    "dataInicio": "2025-05-10"
+    "dataInicio": "2025-11-10"
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {
     "nome": "Hospital Regional de Barueri",
     "descricao": "O Hospital Regional de Barueri é um projeto estratégico de grande porte, planejado para atender a crescente demanda por saúde de qualidade na região oeste da Grande São Paulo. Com área construída de aproximadamente 32 mil metros quadrados, a unidade contará com sete pavimentos, incluindo subsolo técnico, centro cirúrgico, internamentos, UTI e áreas administrativas. Serão disponibilizados 400 leitos, incluindo 80 leitos de UTI adulto, neonatal e pediátrica, além de pronto-socorro de alta complexidade, maternidade e unidades de diagnóstico por imagem com equipamentos modernos. A estrutura do hospital combina concreto armado e aço estrutural, garantindo resistência, segurança e agilidade na execução da obra. Foram projetados sistemas de eficiência energética e hidráulica, incluindo painéis solares, reuso de água pluvial e ventilação natural estratégica. O projeto também inclui áreas de convivência para pacientes e acompanhantes, jardins terapêuticos e espaços de lazer, promovendo bem-estar físico e emocional. Durante a construção, estima-se a geração de cerca de 800 empregos diretos e indiretos. O cronograma da obra prevê 30 meses de execução, contemplando fundações, estrutura, instalações, acabamentos e entrega de equipamentos hospitalares. O Hospital Regional de Barueri se destacará pela integração tecnológica, com prontuário eletrônico, monitoramento remoto de leitos e sistemas de agendamento digital. Espera-se que a unidade realize mais de 8 mil atendimentos mensais, incluindo consultas, cirurgias, internações e serviços de emergência. Este hospital será referência na região, oferecendo atendimento humanizado e de alta complexidade, reforçando a capacidade do sistema público de saúde e contribuindo para a melhoria da qualidade de vida da população.",
-    "dataInicio": "2025-06-20"
+    "dataInicio": "20-06-2026"
 },
 {
     "nome": "Hospital Municipal de Jandira",
     "descricao": "O Hospital Municipal de Jandira é uma construção emblemática voltada para a expansão e modernização da rede de saúde na região metropolitana de São Paulo. Localizado em um ponto de fácil acesso, o hospital terá uma área construída de aproximadamente 27 mil metros quadrados, distribuída em seis pavimentos que abrigam pronto-socorro, centro cirúrgico, maternidade, UTI adulto, pediátrica e neonatal, além de laboratório clínico e setores administrativos. Serão disponibilizados 320 leitos, com capacidade para atendimento de alta complexidade, incluindo cirurgia cardíaca, ortopédica e neurológica. A obra utiliza sistema construtivo misto, com concreto armado e estrutura metálica, visando durabilidade, resistência e agilidade na execução. A concepção arquitetônica prioriza iluminação natural, ventilação cruzada e conforto térmico, aliada a sistemas de gestão energética e hidráulica de alta eficiência, com uso de energia solar e reaproveitamento de água pluvial. O projeto inclui ainda áreas externas planejadas, jardins terapêuticos e espaços de convivência para pacientes, acompanhantes e equipe de saúde. Durante a execução, estima-se a geração de 650 empregos diretos e indiretos, promovendo desenvolvimento econômico e social. O cronograma prevê 26 meses de obra, com etapas estruturais, instalações técnicas, acabamentos e entrega de equipamentos de alta tecnologia. O Hospital Municipal de Jandira será um centro de referência regional, oferecendo atendimento humanizado e integrado com a rede de saúde municipal e estadual, com capacidade de realizar mais de 6 mil atendimentos mensais e contribuir de forma significativa para a melhoria da saúde pública e da qualidade de vida da população local e das cidades vizinhas.",
-    "dataInicio": "2025-07-15"
+    "dataInicio": "2026-07-15"
 }
+{
+    "nome": "Centro Cultural de Santana",
+    "descricao": "O Centro Cultural de Santana será um espaço dedicado à promoção das artes e da cultura local. Com uma área de 8 mil metros quadrados, o projeto inclui auditório, salas de exposições, oficinas artísticas, biblioteca e espaços de convivência. A concepção prioriza acessibilidade, iluminação natural e conforto térmico, além de áreas verdes e jardins internos. Estima-se a geração de 120 empregos diretos durante a construção, com inauguração prevista para abrigar exposições, apresentações e atividades educativas para toda a comunidade.",
+    "dataInicio": "2026-03-10"
+  }
+  {
+    "nome": "Parque Tecnológico de Guarulhos",
+    "descricao": "O Parque Tecnológico de Guarulhos visa fomentar a inovação e o desenvolvimento de startups e empresas de tecnologia. O espaço contará com laboratórios de pesquisa, escritórios compartilhados, auditórios e áreas de convivência. O projeto prioriza sustentabilidade, com sistemas de energia solar, reaproveitamento de água e espaços verdes integrados. A construção está estimada para 18 meses, gerando cerca de 200 empregos diretos, e pretende ser referência em inovação tecnológica na região metropolitana de São Paulo.",
+    "dataInicio": "2026-05-20"
+  }
+  {
+    "nome": "Complexo Esportivo de Osasco",
+    "descricao": "O Complexo Esportivo de Osasco será dedicado à prática de esportes de alto rendimento e lazer comunitário. Com quadras poliesportivas, piscina olímpica, ginásios, pista de atletismo e áreas de convivência, o projeto visa atender atletas profissionais e a população em geral. A construção prioriza segurança, acessibilidade e sustentabilidade, com iluminação LED e aproveitamento de recursos hídricos. A previsão de conclusão é de 24 meses, com geração de 150 empregos diretos e incentivo à prática esportiva e integração comunitária.",
+    "dataInicio": "2026-08-01"
+  }
+{
+  "nome": "Centro Cultural de Campinas",
+  "descricao": "O Centro Cultural de Campinas será um espaço dedicado à promoção das artes e da cultura local, incluindo teatro, música, dança e exposições. Contará com auditório, galerias, salas de oficinas, biblioteca e cafés. O projeto visa fomentar a economia criativa, incentivar a participação da comunidade e oferecer atividades educativas para todas as idades. A construção prioriza sustentabilidade, acessibilidade e integração urbana, com previsão de conclusão em 18 meses e geração de 100 empregos diretos.",
+  "dataInicio": "2026-09-15"
+}
+{
+    "nome": "Parque Tecnológico de São José",
+    "descricao": "O Parque Tecnológico de São José será um centro de inovação voltado à pesquisa e desenvolvimento de tecnologia e startups, com laboratórios, coworking e incubadoras. O projeto visa atrair investimentos, fomentar o empreendedorismo local e gerar empregos qualificados. Prioriza sustentabilidade, eficiência energética e integração com universidades. Previsão de conclusão: 2027-03-01, com geração de 200 empregos diretos.",
+    "dataInicio": "2026-12-01"
+  },
+  {
+    "nome": "Biblioteca Digital de Recife",
+    "descricao": "A Biblioteca Digital de Recife oferecerá acesso gratuito a livros, periódicos e conteúdos multimídia, com salas de estudo e laboratórios de informática. O objetivo é democratizar o acesso à informação, incentivar a leitura e apoiar pesquisas acadêmicas. O projeto prioriza acessibilidade, sustentabilidade e tecnologia de ponta. Previsão de conclusão: 12 meses, gerando 50 empregos diretos.",
+    "dataInicio": "2026-11-10"
+  },
+  {
+    "nome": "Estádio Municipal de Florianópolis",
+    "descricao": "O Estádio Municipal de Florianópolis será destinado a eventos esportivos e culturais, com capacidade para 30 mil pessoas, infraestrutura de segurança, estacionamento e áreas VIP. Visa promover esportes locais, grandes eventos e turismo esportivo. Sustentabilidade, acessibilidade e inovação tecnológica são prioridades. Previsão de conclusão: 24 meses, com 300 empregos diretos.",
+    "dataInicio": "2027-01-05"
+  },
+  {
+    "nome": "Centro de Energias Renováveis de Belo Horizonte",
+    "descricao": "Este centro será dedicado à pesquisa e implementação de energias renováveis, como solar, eólica e biomassa. Contará com laboratórios, áreas de testes e espaços educativos. O objetivo é desenvolver soluções sustentáveis e gerar conhecimento técnico na região. Previsão de conclusão: 18 meses, gerando 120 empregos diretos.",
+    "dataInicio": "2026-12-20"
+  },
+  {
+    "nome": "Hospital Infantil de Porto Alegre",
+    "descricao": "O Hospital Infantil de Porto Alegre terá infraestrutura moderna para atendimento pediátrico especializado, com unidades de UTI, cirurgia e reabilitação. Foco em atendimento humanizado, tecnologia médica avançada e sustentabilidade. Previsão de conclusão: 30 meses, com geração de 250 empregos diretos.",
+    "dataInicio": "2027-02-15"
+  },
+  {
+    "nome": "Museu Interativo de Ciências de Curitiba",
+    "descricao": "O museu oferecerá experiências interativas em ciência, tecnologia e inovação, com exposições, laboratórios de experimentos e atividades educativas para escolas e famílias. O projeto visa estimular curiosidade científica e aprendizado prático. Previsão de conclusão: 14 meses, com geração de 80 empregos diretos.",
+    "dataInicio": "2026-11-25"
+  },
+  {
+    "nome": "Aeroporto Regional de Manaus",
+    "descricao": "O aeroporto terá capacidade para voos regionais e internacionais, com terminais modernos, áreas de carga e segurança avançada. O projeto visa melhorar a conectividade, promover turismo e incentivar o comércio local. Sustentabilidade e eficiência logística são prioridades. Previsão de conclusão: 36 meses, com 400 empregos diretos.",
+    "dataInicio": "2027-03-10"
+  },
+  {
+    "nome": "Complexo Aquático de Salvador",
+    "descricao": "O complexo contará com piscinas olímpicas e recreativas, ginásio, espaço para treinamento e lazer comunitário. O projeto incentiva a prática esportiva, inclusão social e eventos regionais de natação e polo aquático. Previsão de conclusão: 20 meses, com geração de 150 empregos diretos.",
+    "dataInicio": "2026-12-05"
+  },
+  {
+    "nome": "Parque Cultural de Brasília",
+    "descricao": "O parque será um espaço para exposições, apresentações artísticas e atividades ao ar livre, integrando a população e turistas. Contará com auditórios, galerias e áreas verdes preservadas. O objetivo é promover cultura, lazer e sustentabilidade urbana. Previsão de conclusão: 22 meses, gerando 100 empregos diretos.",
+    "dataInicio": "2027-01-20"
+  },
+  {
+    "nome": "Centro de Capacitação Tecnológica de Fortaleza",
+    "descricao": "Este centro terá laboratórios, salas de treinamento e programas de capacitação em tecnologia, programação e inovação. O objetivo é preparar profissionais para o mercado de TI, fomentar startups e reduzir desigualdades digitais. Previsão de conclusão: 16 meses, com geração de 90 empregos diretos.",
+    "dataInicio": "2026-11-30"
+  }
 

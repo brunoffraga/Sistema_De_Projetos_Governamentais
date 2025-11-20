@@ -55,4 +55,8 @@
 
 - 👨‍💻 Autor
   - 
+<<<<<<< HEAD
         - Bruno Fraga
+=======
+        - Bruno Fraga
+>>>>>>> 83fbafd (.\melhorado o html e css agora está funcionando o comentario dando de visualizar os comentários. Estou aprimorando o repository de projetos.)
