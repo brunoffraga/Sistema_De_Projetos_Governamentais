@@ -1,9 +1,9 @@
 package br.gov.Governamentais.controller;
 
-import br.gov.Governamentais.domain.comentarios.dados.DadosCadastraComentario;
-import br.gov.Governamentais.domain.comentarios.dados.DadosDetalhamentoComentario;
-import br.gov.Governamentais.domain.comentarios.dados.DadosEditarComentario;
-import br.gov.Governamentais.domain.comentarios.dados.DadosListaComentario;
+import br.gov.Governamentais.domain.comentario.dados.DadosCadastraComentario;
+import br.gov.Governamentais.domain.comentario.dados.DadosDetalhamentoComentario;
+import br.gov.Governamentais.domain.comentario.dados.DadosEditarComentario;
+import br.gov.Governamentais.domain.comentario.dados.DadosListaComentario;
 import br.gov.Governamentais.service.ComentarioService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,16 +61,14 @@ public class ControllerComentario {
         return ResponseEntity.ok(new DadosDetalhamentoComentario(comentario));
     }
 
-
     @GetMapping
     public ResponseEntity<Page<DadosListaComentario>> listarPorStatus (
             @RequestParam(required = false) Boolean ativo,
-            @PageableDefault(size = 10, sort = {"id"}) Pageable pageable){
+            @PageableDefault(size = 20, sort = {"id"}) Pageable pageable){
 
         var comentario = service.listarPorStatus(ativo, pageable);
         return ResponseEntity.ok(comentario);
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<DadosListaComentario> usuarioId (@PathVariable Long id){

@@ -5,18 +5,15 @@ import br.gov.Governamentais.domain.historico.dados.DadosEditarHistoricos;
 import br.gov.Governamentais.domain.projeto.Projeto;
 import br.gov.Governamentais.domain.usuario.Usuario;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Table(name = "tb_hitoricos")
 @Entity(name = "Hitorico")
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Historicos {
 

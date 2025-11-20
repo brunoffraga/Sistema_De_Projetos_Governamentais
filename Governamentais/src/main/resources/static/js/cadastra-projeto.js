@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // envia via fetch para o backend
-        fetch("http://localhost:8080/projeto", {
+        fetch("http://localhost:8080/api/projeto", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -1,13 +1,15 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/css/button.css">
-    <link rel="stylesheet" href="/static/css/menu.css">
-    <link rel="stylesheet" href="/static/css/comentario-hitorico.css">
-    <script src="/static/js/carrega/menu.js" defer></script>
-    <script src="/static/js/projeto/texto-area-escrita.js" defer></script>
+
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/comentario-hitorico.css}">
+
+    <script th:src="@{../js/carrega/menu.js}"></script>
+    <script th:src="@{../../app.js}"></script>
     <title>Cadastra projetos</title>
 
 </head>

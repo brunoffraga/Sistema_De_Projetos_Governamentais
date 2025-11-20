@@ -58,6 +58,7 @@ public class ControllerHitoricos {
         return ResponseEntity.ok(new DadosDetalhamentoHistoricos(historicos));
     }
 
+    //tratar
     @GetMapping("/{id}")
     public ResponseEntity<Page<DadosListaHistoricos>> listarPorStatus (
             @RequestParam(required = false) Boolean ativo,

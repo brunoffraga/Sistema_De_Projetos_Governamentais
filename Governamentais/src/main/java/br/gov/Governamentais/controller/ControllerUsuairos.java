@@ -23,7 +23,7 @@ public class ControllerUsuairos {
     private UsuarioService service;
 
     @PostMapping
-    public ResponseEntity cadastrar (
+    public ResponseEntity cadastro (
             @RequestBody @Valid DadosCadastraUsuario dados,
             UriComponentsBuilder uriComponentsBuilder){
 

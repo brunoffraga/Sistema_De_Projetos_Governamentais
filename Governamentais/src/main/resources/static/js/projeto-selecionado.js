@@ -14,13 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = params.get('id');
             if (!id) return;
 
-            const response = await fetch(`http://localhost:8080/projeto/${id}`);
+            const response = await fetch(`http://localhost:8080/api/projeto/${id}`);
             if (!response.ok) throw new Error("Projeto não encontrado");
 
             const projeto = await response.json();
             projetoAtual = projeto;
 
-            const campos = ['nome', 'status', 'porcentagem', 'data', 'descricao'];
+            const campos = ['nome', 'data', 'descricao'];
             campos.forEach(campo => {
                 const elemento = document.getElementById(campo);
                 if (elemento) elemento.textContent = projeto[campo] ?? '';
@@ -91,10 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
         botaoHistorico.addEventListener('click', (e) => {
             e.preventDefault();
             if (!projetoAtual) return;
-            window.location.href = `http://localhost:8080/projeto/comentario?id=${projetoAtual.id}`;
+            window.location.href = `http://localhost:8080/projeto/selecionado?id=${projetoAtual.id}`;
         });
     }
-
 
     carregaProjetos();
 });

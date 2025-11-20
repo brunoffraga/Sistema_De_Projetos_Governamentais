@@ -1,4 +1,4 @@
-package br.gov.Governamentais.domain.comentarios.dados;
+package br.gov.Governamentais.domain.comentario.dados;
 
 import br.gov.Governamentais.validation.groups.Create;
 import jakarta.validation.constraints.NotBlank;

@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const form = document.querySelector("form");
     const nomeInput = document.getElementById("nome");
     const dataInicioInput = document.getElementById("dataInicio");
     const descricaoInput = document.getElementById("descricao");
+
+    const botaoAtualiza = document.querySelector(".botao-atualiza");
+    const botaoVolta = document.querySelector(".botao-volta");
 
     // Pega ID da URL
     const params = new URLSearchParams(window.location.search);
@@ -18,8 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function carregaProjeto() {
+        if (!projetoId){
+            console.error("Nenhum ID de projeto encontrado na URL!");
+            alert("ID do projeto não encontrado. Retornando à página anterior...");
+            window.location.href = "http://localhost:8080/projetos"; // ou alguma página padrão
+            return;
+        }
+
         try {
-            const response = await fetch(`/projeto/${projetoId}`);
+            const response = await fetch(`/api/projeto/${projetoId}`);
             if (!response.ok) throw new Error("Projeto não encontrado");
             const projeto = await response.json();
 
@@ -32,45 +41,56 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    carregaProjeto();
+    if (botaoAtualiza) {
+        botaoAtualiza.addEventListener('click', async (e) => {
+            e.preventDefault();
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+            const nome = nomeInput.value.trim();
+            const descricao = descricaoInput.value.trim();
+            const dataInicio = dataInicioInput.value;
 
-        const nome = nomeInput.value.trim();
-        const descricao = descricaoInput.value.trim();
-        const dataInicio = dataInicioInput.value;
+            const hoje = new Date();
+            const dataInicioObj = new Date(dataInicio);
 
-        const hoje = new Date();
-        const dataInicioObj = new Date(dataInicio);
-
-        if (dataInicioObj < hoje) {
-            alert("A data de início deve ser hoje ou futura.");
-            return;
-        }
-
-        const dados = { nome, dataInicio, descricao };
-
-        try {
-            const response = await fetch(`/projeto/${projetoId}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(dados)
-            });
-
-            const result = await response.json();
-
-            if (!response.ok) {
-                console.error("Erro do servidor:", result);
-                alert("Erro ao atualizar o projeto: " + JSON.stringify(result));
-            } else {
-                alert("Projeto atualizado com sucesso!");
+            if (dataInicioObj < hoje) {
+                alert("A data de início deve ser hoje ou futura.");
+                return;
             }
 
-        } catch (error) {
-            console.error("Erro ao atualizar o projeto:", error);
-            alert("Erro ao atualizar o projeto");
-        }
-    });
+            const dados = { nome, dataInicio, descricao };
 
+            try {
+                const response = await fetch(`/api/projeto/${projetoId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(dados)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    console.error("Erro do servidor:", result);
+                    alert("Erro ao atualizar o projeto: " + JSON.stringify(result));
+                } else {
+                    alert("Projeto atualizado com sucesso!");
+                    window.location.href = `http://localhost:8080/projeto/selecionado?id=${projetoId}`
+                }
+
+            } catch (error) {
+                console.error("Erro ao atualizar o projeto:", error);
+                alert("Erro ao atualizar o projeto");
+            }
+        });
+    }
+
+    if (botaoVolta){
+        botaoVolta.addEventListener('click', (e) => {
+            console.error("Nenhum ID de projeto encontrado na URL!");
+            e.preventDefault();
+            if (!projetoId) return;
+            window.location.href = `http://localhost:8080/projeto/selecionado?id=${projetoId}`;
+        })
+    }
+
+    carregaProjeto();
 });

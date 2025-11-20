@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para carregar os projetos do backend
     async function carregaProjetos() {
         try {
-            const response = await fetch('http://localhost:8080/projeto/semDescricao?ativo=true'); // endpoint Spring Boot
+            const response = await fetch('http://localhost:8080/api/projeto/nome?ativo=true'); // endpoint Spring Boot
             const data = await response.json();
             const projetos = data.content; // array de projetos
 

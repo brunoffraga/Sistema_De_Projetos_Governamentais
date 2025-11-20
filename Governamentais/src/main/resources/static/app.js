@@ -1,4 +1,5 @@
-import { enviarComentario, listarComentarios } from './js/modulo/projeto';
+/*
+import { enviarComentario, listarComentarios } from './js/modulo/projeto.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     listarComentarios();
@@ -12,5 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!comentario) return alert("Digite um comentário.");
 
             await enviarComentario(usuarioId, comentario);
+            document.querySelector('.input-area input').value = ''; // limpa o campo
+            listarComentarios();
         });
 });
+*/

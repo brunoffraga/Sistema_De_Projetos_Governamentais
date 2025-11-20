@@ -1,15 +1,13 @@
 package br.gov.Governamentais.domain.projeto;
 
-import br.gov.Governamentais.domain.comentarios.Comentario;
+import br.gov.Governamentais.domain.comentario.Comentario;
 import br.gov.Governamentais.domain.historico.Historicos;
 import br.gov.Governamentais.domain.projeto.dados.DadosCadastroProjeto;
 import br.gov.Governamentais.domain.projeto.dados.DadosEditarProjeto;
 import br.gov.Governamentais.domain.projetoUsuario.VincularProjetoUsuario;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDate;
@@ -19,9 +17,9 @@ import java.util.UUID;
 
 @Table(name = "tb_projeto")
 @Entity(name = "Projeto")
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Projeto {
 
@@ -42,9 +40,10 @@ public class Projeto {
     @Column(name = "projeto_descricao", length = 4000)
     private String descricao;
 
+    @Convert(converter = Converter.class)
     @Enumerated(EnumType.STRING)
     @Column(name = "projeto_status")
-    private Status status = Status.PLANEJADO_INICIAL;
+    private Status status;
 
     //TODO: Fazer limitação de 0 a 100
     @Column(name = "projeto_porcentagem")
@@ -64,13 +63,16 @@ public class Projeto {
 
     //TODO: colocar o relacionamento no usuário.
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<VincularProjetoUsuario> projetoUsuarios = new ArrayList<>();
 
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Historicos> hitoricos = new ArrayList<>();
 
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL)
-    private List<Comentario> comentarios = new ArrayList<>();
+    @JsonManagedReference
+    private List<Comentario> comentario = new ArrayList<>();
 
     public Projeto(DadosCadastroProjeto dados) {
         this.nome = dados.nome();

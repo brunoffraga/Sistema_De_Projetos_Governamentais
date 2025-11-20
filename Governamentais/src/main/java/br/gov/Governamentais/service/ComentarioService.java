@@ -1,10 +1,10 @@
 package br.gov.Governamentais.service;
 
-import br.gov.Governamentais.domain.comentarios.Comentario;
-import br.gov.Governamentais.domain.comentarios.ComentarioRepository;
-import br.gov.Governamentais.domain.comentarios.dados.DadosCadastraComentario;
-import br.gov.Governamentais.domain.comentarios.dados.DadosEditarComentario;
-import br.gov.Governamentais.domain.comentarios.dados.DadosListaComentario;
+import br.gov.Governamentais.domain.comentario.Comentario;
+import br.gov.Governamentais.domain.comentario.ComentarioRepository;
+import br.gov.Governamentais.domain.comentario.dados.DadosCadastraComentario;
+import br.gov.Governamentais.domain.comentario.dados.DadosEditarComentario;
+import br.gov.Governamentais.domain.comentario.dados.DadosListaComentario;
 import br.gov.Governamentais.domain.projeto.Projeto;
 import br.gov.Governamentais.domain.projeto.ProjetoRepository;
 import br.gov.Governamentais.domain.usuario.Usuario;
@@ -43,7 +43,7 @@ public class ComentarioService {
 
         comentario.setProjeto(projeto);
         comentario.setUsuario(usuario);
-        comentario.setComentario(dados.comentario());
+        comentario.setDescricao(dados.comentario());
 
         repository.save(comentario);
 
@@ -63,7 +63,7 @@ public class ComentarioService {
 
         comentario.setProjeto(projeto);
         comentario.setUsuario(usuario);
-        comentario.setComentario(dados.comentario());
+        comentario.setDescricao(dados.comentario());
 
         repository.save(comentario);
 

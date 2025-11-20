@@ -1,43 +1,50 @@
-package br.gov.Governamentais.domain.comentarios;
+package br.gov.Governamentais.domain.comentario;
 
-import br.gov.Governamentais.domain.comentarios.dados.DadosCadastraComentario;
-import br.gov.Governamentais.domain.comentarios.dados.DadosEditarComentario;
+
 import br.gov.Governamentais.domain.projeto.Projeto;
 import br.gov.Governamentais.domain.usuario.Usuario;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Table(name = "tb_comentarios")
-@Entity(name = "Comentarios")
-@Data //TODO: FAZER NAS OUTRAS ENTIDADES.
+@Table(name = "tb_comentario")
+@Entity(name = "Comentario")
+@Data
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Comentario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comentario_seq")
     @SequenceGenerator(name = "comentario_seq", sequenceName = "SEQ_COMENTARIO", allocationSize = 1)
-    @Column(name = "comentarios_id")
+    @Column(name = "comentario_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "projeto_projeto_id", referencedColumnName = "projeto_id")
+    @JsonBackReference
     private Projeto projeto;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "usuario_usuario_id", referencedColumnName = "usuario_id")
+    @JsonBackReference
     private Usuario usuario;
 
-    //TODO: Limitar o varchar de 4000 e mínimo de 10fazer regra no DTO
-    @Column(name = "comentarios_descricao")
-    private String comentario;
+    @Column(name = "comentario_descricao", length = 4000, nullable = false)
+    private String descricao;
 
-    @Column(name = "comentario_data_comentario")
+    @Column(name = "comentario_data")
     private LocalDateTime dataComentario;
 
     @Column(name = "comentario_ativo")
     private Boolean ativo;
 
+    public Comentario(Usuario usuario, Long id, String comentario, LocalDateTime dataComentario) {
+        this.usuario = usuario;
+        this.id = id;
+        this.descricao = getDescricao();
+        this.dataComentario = dataComentario;
+    }
 }

@@ -1,14 +1,11 @@
 package br.gov.Governamentais.domain.usuario;
 
-import br.gov.Governamentais.domain.comentarios.Comentario;
+import br.gov.Governamentais.domain.comentario.Comentario;
 import br.gov.Governamentais.domain.historico.Historicos;
 import br.gov.Governamentais.domain.projetoUsuario.VincularProjetoUsuario;
 import br.gov.Governamentais.domain.usuario.dados.DadosCadastraUsuario;
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.ArrayList;
@@ -17,9 +14,9 @@ import java.util.UUID;
 
 @Table(name = "tb_usuario")
 @Entity(name = "Usuario")
-@NoArgsConstructor
-@Setter
 @Getter
+@Setter
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Usuario {
 
@@ -56,6 +53,7 @@ public class Usuario {
         this.email = dados.email();
         this.ativo = true;
     }
+
 
     public void Usuario(DadosCadastraUsuario dados) {
         if (dados.nome() != null) {

@@ -1,6 +1,6 @@
 package br.gov.Governamentais.controller;
 
-import br.gov.Governamentais.domain.projeto.Projeto;
+import br.gov.Governamentais.domain.comentario.dados.DadosListaComentario;
 import br.gov.Governamentais.domain.projeto.dados.*;
 import br.gov.Governamentais.service.ProjetoService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,7 +18,7 @@ import java.util.UUID;
 
 @CrossOrigin(origins = "http://localhost:63342") //Permite requisições do seu frontend
 @RestController
-@RequestMapping("/projeto")
+@RequestMapping("/api/projeto")
 public class ControllerProjeto {
 
     @Autowired
@@ -37,7 +37,7 @@ public class ControllerProjeto {
 
         return ResponseEntity
                 .created(uri)
-                .body(new DadosDetalhamentoProjeto(new Projeto()));
+                .body(new DadosDetalhamentoProjeto(projeto));
     }
 
     @PutMapping("/{id}/status")
@@ -71,7 +71,7 @@ public class ControllerProjeto {
         return ResponseEntity.ok(projeto);
     }
 
-    @Operation(summary = "Listar projetos")
+    @Operation(summary = "Lista projetos sem comentario")
     @GetMapping("/semDescricao")
     public ResponseEntity<Page<DadosListaProjetoSemDescricao>> listarPorStatusSemTexto (
             @RequestParam(required = false) Boolean ativo,
@@ -82,9 +82,31 @@ public class ControllerProjeto {
         return ResponseEntity.ok(projeto);
     }
 
+    @Operation(summary = "Lista só com nome")
+    @GetMapping("/nome")
+    public ResponseEntity<Page<DadosListaProjetoNome>> listarPorStatusNome (
+            @RequestParam(required = false) Boolean ativo,
+            @ParameterObject
+            @PageableDefault(size = 40, sort = {"id"}) Pageable pageable) {
+
+        var projeto = service.listarPorStatusNome(ativo, pageable);
+        return ResponseEntity.ok(projeto);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<DadosListaProjeto> projetoId (@PathVariable UUID id) {
-        var projeto = service.usuarioId(id);
+        var projeto = service.projetoId(id);
+        return ResponseEntity.ok(projeto);
+    }
+
+    @Operation(summary = "Listar projetos")
+    @GetMapping("/comentarios")
+    public ResponseEntity<Page<DadosListaComentario>> listaProjetoComentarios (
+            @RequestParam(required = false) Boolean ativo,
+            @RequestParam UUID projetoId,
+            @PageableDefault(size = 20, sort = {"id"}) Pageable pageable) {
+
+        var projeto = service.listaProjetoComentarios(ativo, projetoId, pageable);
         return ResponseEntity.ok(projeto);
     }
 

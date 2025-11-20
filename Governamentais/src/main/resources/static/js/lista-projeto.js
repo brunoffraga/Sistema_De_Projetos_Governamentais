@@ -19,7 +19,7 @@ async function listarProjeto() {
     const ativo = params.get('ativo');
 
     // usar ${ativo} para inserir o valor da variável
-    const response = await fetch(`http://localhost:8080/projeto/semDescricao?ativo=${ativo}`);
+    const response = await fetch(`http://localhost:8080/api/projeto/semDescricao?ativo=${ativo}`);
     if (!response.ok) throw new Error('Erro ao buscar projeto');
 
     const data = await response.json();

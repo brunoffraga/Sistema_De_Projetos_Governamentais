@@ -20,8 +20,11 @@ public class WebConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // aplica para todas as rotas
                         .allowedOrigins("http://localhost:63342") // front-end
+                        .allowedOrigins("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("*");
+                        .allowedMethods("/**")
+                        .allowedHeaders("*")
+                        .allowedHeaders("/**");
             }
         };
     }

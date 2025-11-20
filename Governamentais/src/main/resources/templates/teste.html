@@ -1,30 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <title>Menu com Tooltip</title>
-    <style>
-    </style>
+  <meta charset="UTF-8">
+  <title>Consumir API - Usuários</title>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Cadastrar projeto</a></li>
-        <li><a href="#">Cadastrar usuário</a></li>
-        <li class="has-tooltip"><a href="#">Usuário</a>
-            <div class="tooltip">
-                <a href="#">Ativar</a>
-                <a href="#">Desativar</a>
-            </div>
-        </li>
-        <li class="has-tooltip"><a href="#">Projeto</a>
-            <div class="tooltip">
-                <a href="#">Ativar</a>
-                <a href="#">Desativar</a>
-            </div>
-        </li>
-    </ul>
-</nav>
+  <h2>Lista de Nomes:</h2>
+  <ul id="listaNomes"></ul>
+
+  <script>
+    async function buscarUsuarios() {
+      try {
+        const resposta = await fetch("http://localhost:8080/usuario?ativo=true");
+        
+        if (!resposta.ok) {
+          throw new Error("Erro na requisição: " + resposta.status);
+        }
+
+        const dados = await resposta.json();
+        
+        // Extrai o campo 'nome' de cada item do array 'content'
+        const nomes = dados.content.map(usuario => content.nome);
+
+        console.log("Nomes encontrados:", nomes);
+
+        // Exibir os nomes na página
+        const lista = document.getElementById("listaNomes");
+        nomes.forEach(nome => {
+          const li = document.createElement("li");
+          li.textContent = nome;
+          lista.appendChild(li);
+        });
+
+      } catch (erro) {
+        console.error("Erro ao buscar usuários:", erro);
+      }
+    }
+
+    // Chama a função ao carregar a página
+    buscarUsuarios();
+  </script>
 </body>
 </html>

@@ -1,11 +1,10 @@
 package br.gov.Governamentais.service;
 
+import br.gov.Governamentais.domain.comentario.ComentarioRepository;
+import br.gov.Governamentais.domain.comentario.dados.DadosListaComentario;
 import br.gov.Governamentais.domain.projeto.Projeto;
 import br.gov.Governamentais.domain.projeto.ProjetoRepository;
-import br.gov.Governamentais.domain.projeto.dados.DadosCadastroProjeto;
-import br.gov.Governamentais.domain.projeto.dados.DadosEditarProjeto;
-import br.gov.Governamentais.domain.projeto.dados.DadosListaProjeto;
-import br.gov.Governamentais.domain.projeto.dados.DadosListaProjetoSemDescricao;
+import br.gov.Governamentais.domain.projeto.dados.*;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +20,9 @@ public class ProjetoService {
 
     @Autowired
     private ProjetoRepository repository;
+
+    @Autowired
+    private ComentarioRepository repositoryComentario;
 
     @Transactional
     public Projeto salvar(DadosCadastroProjeto request){
@@ -71,16 +73,26 @@ public class ProjetoService {
         return repository.findAllByAtivo(ativo, pageable).map(DadosListaProjeto::new);
     }
 
+    //Lista sem o comentario do projeto
     public Page<DadosListaProjetoSemDescricao> listarPorStatusSemTexto(Boolean ativo, Pageable pageable) {
 
-        return repository.findAllByAtivo(ativo, pageable)
-                .map(DadosListaProjetoSemDescricao::new);
+        return repository.PesquisaRetornaSemComentario(ativo, pageable);
     }
 
-    public DadosListaProjeto usuarioId(@PathVariable UUID id){
+    public Page<DadosListaProjetoNome> listarPorStatusNome(Boolean ativo, Pageable pageable) {
+
+        return repository.PesquisaRetornaIdNome(ativo, pageable);
+    }
+
+
+    public DadosListaProjeto projetoId(@PathVariable UUID id){
         var projeto = repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Projeto não encontrado com o id: " + id));
         return new DadosListaProjeto(projeto);
+    }
+
+    public Page<DadosListaComentario> listaProjetoComentarios(Boolean ativo, UUID projetoId, Pageable pageable) {
+        return repositoryComentario.findAllByAtivo(ativo, projetoId, pageable);
     }
 
 }

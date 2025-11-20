@@ -22,11 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const body = {
             id: "", // se for cadastro novo, deixa vazio ou gera no backend
             nome,
-            porcentagem: 0,
-            ativo: false,
             status: "PLANEJADO_INICIAL",
-            dataInicial, // campo correto
-            descricao
+            dataInicial,
         };
 
         console.log("JSON enviado (POST):", body);
